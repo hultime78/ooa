@@ -37,8 +37,13 @@ public class ProfessorServiceImpl implements ProfessorService {
 
     @Override
     public void updateProfessor(Professor professor) {
-        Professor temp=professorRepository.findById(professor.getId()).orElseThrow(()->
-                new RuntimeException());
-        professorRepository.save(professor);
+        Professor temp=professorRepository.findById(professor.getId()).orElse(null);
+        if(temp!=null){
+            temp.setCourses(professor.getCourses());
+            temp.setLastName(professor.getLastName());
+            temp.setFirstName(professor.getFirstName());
+            temp.setCourses(professor.getCourses());
+        }
+        professorRepository.save(temp);
     }
 }

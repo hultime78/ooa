@@ -31,7 +31,17 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public void deleteCourseByID(Course course) {
-        courseRepository.delete(course);
+    public void deleteCourseByID(long id) {
+        courseRepository.deleteById(id);
+    }
+
+    @Override
+    public void updateCourse(Course course) {
+        Course temp=courseRepository.findById(course.getId()).orElse(null);
+        if(temp!=null){
+            temp.setName(course.getName());
+            temp.setPoints(course.getPoints());
+            courseRepository.save(temp);
+        }else throw new RuntimeException();
     }
 }

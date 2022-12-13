@@ -35,12 +35,15 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public void updateStudent(Student student) {
-        if(studentRepository.findById(student.getId()).isPresent()){
-            studentRepository.save(student);
-        }
-        else
-        {
-            throw new RuntimeException();
-        }
+        Student temp=studentRepository.findById(student.getId()).orElse(null);
+        if(temp!=null){
+            temp.setFirstName(student.getFirstName());
+            temp.setLastName(student.getLastName());
+            temp.setFaculte(student.getFaculte());
+            temp.setOption(student.getOption());
+            temp.setPromotion(student.getPromotion());
+            studentRepository.save(temp);
+        } else throw new RuntimeException();
+
     }
 }

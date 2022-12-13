@@ -10,5 +10,6 @@ public interface CourseService {
     Course saveCourse(Course course);
     List<Course> getCourses();
     Optional<Course> getCourseByID(long id);
-    void deleteCourseByID(Course course);
+    void deleteCourseByID(long id);
+    void updateCourse(Course course);
 }

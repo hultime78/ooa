@@ -17,9 +17,7 @@ public class Professor {
     String firstName;
     @Column(name="lastName")
     String lastName;
-    @Column(name="")
-    String promotion;
-    @Column
+    @Column(name="courses")
     List<Course> courses;
 
 

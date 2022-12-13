@@ -6,6 +6,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 @Entity
 public class Course {
@@ -16,5 +18,7 @@ public class Course {
   String name;
   @Column(name="points")
   int points;
+  @Column(name="professors")
+  List<Professor> professors;
 
 }
