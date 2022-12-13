@@ -5,10 +5,7 @@ import org.hlab.bookapirest.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/")
@@ -27,11 +24,17 @@ public class StudentController {
     public String newStudentForm(Model model){
         Student student=new Student();
         model.addAttribute("student",student);
-        return "newStudent";
+        return "new_student";
     }
     @PostMapping("/saveStudent")
-    public String saveStudent(@ModelAttribute Student student){
+    public String saveStudentForm(@ModelAttribute Student student){
         studentService.saveStudent(student);
         return "redirect:/";
+    }
+    @GetMapping(value = "/updateStudent/{id}")
+    public String updateStudentForm(@PathVariable(value ="id" )long id,Model model){
+        Student student=studentService.findStudentById(id).get();
+        model.addAttribute("student",student);
+        return "update_student";
     }
 }

@@ -4,6 +4,7 @@ import org.hlab.bookapirest.model.Student;
 import org.hlab.bookapirest.repository.StudentRepository;
 import org.hlab.bookapirest.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -27,7 +28,14 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public Optional<Student> findStudentById(long id) {
-        return studentRepository.findById(id);
+       Optional<Student> optional=studentRepository.findById(id);
+       Student student;
+       if(optional.isPresent()){
+           student=optional.get();
+       }else {
+           throw new RuntimeException("Student not found");
+       }
+       return optional;
     }
 
     @Override
@@ -45,7 +53,7 @@ public class StudentServiceImpl implements StudentService {
             temp.setOption(student.getOption());
             temp.setPromotion(student.getPromotion());
             studentRepository.save(temp);
-        } else throw new RuntimeException();
+        } else throw new RuntimeException("Employee not found");
 
     }
 }

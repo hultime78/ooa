@@ -17,6 +17,7 @@
                 <th>Student last name</th>
                 <th>Student promotion</th>
                 <th>Student Faculte</th>
+                <th>Actions</th>
             </tr>
             </thead>
             <tbody>
@@ -25,6 +26,7 @@
                 <td th:text="${student.lastName}"></td>
                 <td th:text="${student.promotion}"></td>
                 <td th:text="${student.faculte}"></td>
+                <td> <a th:href="@{/updateStudent/{id}(id=${student.id}) }" class="btn btn-primary">update</a></td>
             </tr>
             </tbody>
         </table>
