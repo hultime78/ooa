@@ -1,7 +1,9 @@
-package org.hlab.bookapirest.service;
+package org.hlab.bookapirest.service.impl;
 
 import org.hlab.bookapirest.model.Professor;
 import org.hlab.bookapirest.repository.ProfessorRepository;
+import org.hlab.bookapirest.service.ProfessorService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,6 +12,7 @@ import java.util.Optional;
 @Service
 public class ProfessorServiceImpl implements ProfessorService {
 
+    @Autowired
     ProfessorRepository professorRepository;
 
     @Override
