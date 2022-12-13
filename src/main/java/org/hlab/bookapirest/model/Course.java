@@ -1,10 +1,9 @@
 package org.hlab.bookapirest.model;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Generated;
 
 import java.util.List;
 
@@ -13,6 +12,7 @@ import java.util.List;
 public class Course {
 
   @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   long id;
   @Column(name="name")
   String name;
