@@ -3,12 +3,11 @@ package org.hlab.bookapirest.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.Generated;
 
-import java.util.List;
 
 @Data
 @Entity
+@Table(name="course")
 public class Course {
 
   @Id
@@ -18,7 +17,5 @@ public class Course {
   String name;
   @Column(name="points")
   int points;
-  @Column(name="professors")
-  List<Professor> professors;
 
 }

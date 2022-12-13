@@ -1,16 +1,16 @@
 package org.hlab.bookapirest.model;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
 @Entity
+@Table(name="student")
 public class Student {
 
     @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     long id;
     @Column(name="firstName")
     String firstName;

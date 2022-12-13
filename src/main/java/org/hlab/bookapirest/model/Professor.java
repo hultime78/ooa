@@ -1,24 +1,21 @@
 package org.hlab.bookapirest.model;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 
-import java.util.List;
 
 @Data
 @Entity
+@Table(name="professor")
 public class Professor {
     @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     long id;
     @Column(name="firstName")
     String firstName;
     @Column(name="lastName")
     String lastName;
-    @Column(name="courses")
-    List<Course> courses;
 
 
 }

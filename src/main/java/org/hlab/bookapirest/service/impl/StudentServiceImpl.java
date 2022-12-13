@@ -4,10 +4,12 @@ import org.hlab.bookapirest.model.Student;
 import org.hlab.bookapirest.repository.StudentRepository;
 import org.hlab.bookapirest.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class StudentServiceImpl implements StudentService {
 
     @Autowired
